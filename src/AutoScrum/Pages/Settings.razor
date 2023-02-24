@@ -1,5 +1,51 @@
 ﻿@page "/settings"
 
+@using AutoScrum.Helpers;
+@using Color = MudBlazor.Color; 
+
+<MudPaper Class="pa-16 ma-2" Elevation="3">
+    <MudText Typo="Typo.h5" >Projects</MudText>
+        <MudExpansionPanels>
+        @{
+            foreach (var project in ProjectData)
+            {
+               <MudExpansionPanel Text="@project.Name">
+                    <MudGrid >
+                        <MudItem>
+                            <MudTooltip Text="@ProjectLabels[0]">
+                                <MudTextField @bind-Value="@project.Name" Label="Profile Name" Variant="Variant.Text"></MudTextField>
+                            </MudTooltip>
+                        </MudItem>
+                        <MudItem>
+                            <MudTooltip Text="@ProjectLabels[1]">
+                                <MudTextField @bind-Value="@project.UserEmail" Label="Email" Variant="Variant.Text"></MudTextField>
+                            </MudTooltip>
+                        </MudItem>
+                        <MudItem>
+                            <MudTooltip Text="@ProjectLabels[2]">
+                                <MudTextField @bind-Value="@project.PersonalAccessToken" Label="PAT" Variant="Variant.Text"></MudTextField>
+                            </MudTooltip>
+                        </MudItem>
+                        <MudItem>
+                            <MudTooltip Text="@ProjectLabels[3]">
+                                <MudTextField @bind-Value="@project.AzureDevOpsOrganization" Label="Org Name" Variant="Variant.Text"></MudTextField>
+                            </MudTooltip>
+                        </MudItem>
+                        <MudItem>
+                            <MudTooltip Text="@ProjectLabels[4]">
+                                <MudTextField @bind-Value="@project.ProjectName" Label="Project Name" Variant="Variant.Text"></MudTextField>
+                            </MudTooltip>
+                        </MudItem>
+                    </MudGrid>
+                </MudExpansionPanel>
+                }
+            }
+        </MudExpansionPanels>
+        <MudButton>
+            Add
+        </MudButton>
+</MudPaper>
+
 @code {
 
 }

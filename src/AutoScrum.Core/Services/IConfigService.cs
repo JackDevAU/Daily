@@ -12,6 +12,7 @@ public interface IConfigService
 
     Task<List<ProjectMetadata>> GetProjectsMetadata();
     Task<ProjectConfig?> GetCurrentProject();
+    Task<ProjectConfig?> GetCurrentProject(int path);
     Task SetCurrentProject(int projectId);
     Task<TProjectConfig> AddOrUpdateProject<TProjectConfig>(ProjectMetadata projectMetadata, TProjectConfig project) where TProjectConfig : ProjectConfig;
     Task<TProjectConfig> AddOrUpdateProject<TProjectConfig>(TProjectConfig project) where TProjectConfig : ProjectConfig;

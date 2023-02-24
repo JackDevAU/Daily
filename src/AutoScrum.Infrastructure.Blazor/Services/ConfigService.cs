@@ -75,6 +75,19 @@ internal class ConfigService : IConfigService
         return project;
     }
 
+    public async Task<ProjectConfig?> GetCurrentProject(int path)
+    {
+        ProjectMetadata? projectMeta = await GetProjectMetadata(path);
+
+        var project = await _projectRepo.Get(projectMeta?.Path);
+        if (project != null && string.IsNullOrWhiteSpace(project.Name))
+        {
+            project.Name = projectMeta?.Name ?? "Default-1";
+        }
+
+        return project;
+    }
+
     public async Task<List<ProjectMetadata>> GetProjectsMetadata()
     {
         return await _memoryCache.GetOrCreateAsync(ProjectsMetaCacheKey, async entity =>
