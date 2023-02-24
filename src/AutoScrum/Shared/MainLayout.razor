@@ -1,13 +1,15 @@
 ﻿@inherits LayoutComponentBase
 
-<MudThemeProvider/>
+<MudThemeProvider Theme="SSWMudTheme.Theme" />
+
 <MudDialogProvider/>
 <MudSnackbarProvider/>
 
-
 <MudLayout>
     <MudAppBar>
-        SSW.Daily
+        <MudText Typo="Typo.h3">
+            SSW.Daily
+        </MudText>
     </MudAppBar>
     <MudMainContent>
          <MudContainer MaxWidth="MaxWidth.Medium">
@@ -15,19 +17,3 @@
          </MudContainer>
     </MudMainContent>
 </MudLayout>
-
-@*
-<Layout>
-    <Header>
-        <div style="display: flex; align-items: center">
-            <Title Style="color: #fff; margin: 0;" Level="1">AutoScrum</Title>
-            <Menu Theme="MenuTheme.Dark" Mode="MenuMode.Horizontal" Style="margin-left: 1rem;">
-                <MenuItem RouterLink="/" RouterMatch="NavLinkMatch.All">Home</MenuItem>
-            </Menu>
-        </div>
-    </Header>
-    <Content Style="padding: 1rem 0 1rem 50px">
-        @Body
-        @*<BackTop />*@
-@*    </Content>
-</Layout>*@
