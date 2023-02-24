@@ -4,12 +4,15 @@
 @using Color = MudBlazor.Color; 
 
 <MudPaper Class="pa-16 ma-2" Elevation="3">
-    <MudText Typo="Typo.h5" >Projects</MudText>
-        <MudExpansionPanels>
+    <MudStack Class="py-2" Row="true" Justify="Justify.FlexStart">
+        <MudText Class="d-flex align-center" Typo="Typo.h5">Projects</MudText>
+        <MudIconButton Color="Color.Success" Icon="@Icons.Material.Rounded.Add"/>
+    </MudStack>
+    <MudExpansionPanels>
         @{
             foreach (var project in ProjectData)
             {
-               <MudExpansionPanel Text="@project.Name">
+                <MudExpansionPanel Text="@project.Name">
                     <MudGrid >
                         <MudItem>
                             <MudTooltip Text="@ProjectLabels[0]">
@@ -38,12 +41,9 @@
                         </MudItem>
                     </MudGrid>
                 </MudExpansionPanel>
-                }
             }
-        </MudExpansionPanels>
-        <MudButton>
-            Add
-        </MudButton>
+        }
+    </MudExpansionPanels>
 </MudPaper>
 
 @code {
