@@ -21,7 +21,7 @@
             </div>
         </AntDesign.Title>
 
-        <Row>
+        <AntDesign.Row>
             <AntDesign.Col Span="22" Xl="22" Md="24" Sm="24">
                 <Select DataSource="@ProjectMetadatas"
                     @bind-Value="@_selectedProjectId"
@@ -37,11 +37,11 @@
                 </Select>
             </AntDesign.Col>
             <AntDesign.Col Span="2" Xl="2" Md="24" Sm="24">
-                <Button Type="@ButtonType.Default" OnClick="AddProject">
+                <Button Type="@AntDesign.ButtonType.Default" OnClick="AddProject">
                     ➕ Add Project
                 </Button>
             </AntDesign.Col>
-        </Row>
+        </AntDesign.Row>
 
         <CollapsibleCard Title="Azure DevOps Connection Info" AnchorLink="connection-info" TitleContainerId="connection-info-header" IsVisible="@ShowConfig">
             @* TODO: Refactor to new component: 'ConnectionInfoForm.razor' *@
@@ -83,13 +83,13 @@
                     </RadioGroup>
                 </FormItem>
                 <FormItem WrapperColOffset="4" WrapperColSpan="20">
-                    <Button Id="ProfileSubmit" Type="@ButtonType.Primary" OnClick="SubmitAsync">
+                    <Button Id="ProfileSubmit" Type="@AntDesign.ButtonType.Primary" OnClick="SubmitAsync">
                         Submit
                     </Button>
-                    <Button Id="ProfileSave" Type="@ButtonType.Default" OnClick="SaveConfigAsync">
+                    <Button Id="ProfileSave" Type="@AntDesign.ButtonType.Default" OnClick="SaveConfigAsync">
                         Save
                     </Button>
-                    <Button  Id="ProfileDelete" Danger Type="@ButtonType.Default" OnClick="DeleteConfigAsync">
+                    <Button Id="ProfileDelete" Danger Type="@AntDesign.ButtonType.Default" OnClick="DeleteConfigAsync">
                         Delete
                     </Button>
                 </FormItem>
@@ -105,11 +105,11 @@
                 <Table DataSource="Users"
                        Responsive
                        HidePagination>
-                    <Column Title="Name" TData="User">
+                <AntDesign.Column Title="Name" TData="User">
                         <Tooltip Title="context.Email">
                             <span>@context.DisplayName</span>
                         </Tooltip>
-                    </Column>
+                    </AntDesign.Column>
                     <ActionColumn Title="Include">
                         <Switch Checked="context.Included" CheckedChanged="include => UserIncludeChanged(context, include)" />
                     </ActionColumn>
@@ -122,11 +122,11 @@
                 <Table DataSource="IncludedUsers"
                        Responsive
                        HidePagination>
-                    <Column Title="Name" TData="User">
+                <AntDesign.Column Title="Name" TData="User">
                         <Tooltip Title="context.Email">
                             <span>@context.DisplayName</span>
                         </Tooltip>
-                    </Column>
+                    </AntDesign.Column>
                     <ActionColumn Title="Include">
                         <TextArea Placeholder="Autosize height based on content lines" AutoSize="true" @bind-Value="context.Blocking" OnChange="OnBlockingUpdated" />
                     </ActionColumn>
@@ -141,7 +141,7 @@
 
             <Divider/>
 
-            <Row>
+            <AntDesign.Row>
                 <AntDesign.Col Span="12" Xl="12" Md="24" Sm="24">
                     <CollapsibleCard Title="Yesterday" AnchorLink="yesterday-today">
                         <WorkItemListComponent WorkItems="@DailyScrum.Yesterday" IsOnBoard=false OnRemove="wi => RemoveWorkItem(wi, false)"></WorkItemListComponent>
@@ -152,7 +152,7 @@
                         <WorkItemListComponent WorkItems="@DailyScrum.Today" IsOnBoard=false OnRemove="wi => RemoveWorkItem(wi, true)"></WorkItemListComponent>
                     </CollapsibleCard>
                 </AntDesign.Col>
-            </Row>
+            </AntDesign.Row>
 
             <Divider/>
 

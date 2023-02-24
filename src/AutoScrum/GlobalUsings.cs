@@ -1,4 +1,5 @@
-﻿global using AntDesign;
+﻿global using MudBlazor;
+global using AntDesign;
 global using AutoScrum;
 global using AutoScrum.Core;
 global using AutoScrum.Core.Config;

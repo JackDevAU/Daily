@@ -1,5 +1,9 @@
 ﻿@inherits LayoutComponentBase
 
+<MudThemeProvider/>
+<MudDialogProvider/>
+<MudSnackbarProvider/>
+
 <Layout>
     <Header>
         <div style="display: flex; align-items: center">
@@ -11,6 +15,6 @@
     </Header>
     <Content Style="padding: 1rem 0 1rem 50px">
         @Body
-        <BackTop />
+        @*<BackTop />*@
     </Content>
 </Layout>
