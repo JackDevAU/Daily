@@ -14,6 +14,7 @@ namespace AutoScrum
                     Secondary = "#333333",
                     AppbarBackground = "#cc4141",
                     Background = "#ffffffff",
+                    Success = "45A35F"
                 },
                 PaletteDark = new Palette()
                 {

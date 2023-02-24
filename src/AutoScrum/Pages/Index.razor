@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using Color = MudBlazor.Color
 
 <div id="ui-test-hidden-states">
     @if (!IsPageInitializing) { <input id="is-page-loading" type="hidden" value="true" /> }
@@ -10,17 +11,39 @@
     <input id="connection-info-profile-project-type" type="hidden" value="@(ConnectionInfoRequest?.ProjectType)" />
     <input id="connection-info-profile-team-filter-by" type="hidden" value="@(ConnectionInfoRequest?.TeamFilterBy)" />
 </div>
+<MudContainer Class="px-0">
+    <MudGrid Spacing="2" Justify="Justify.Center" Class="my-2">
+        <MudItem xs="12">
+            <MudStack Row="true" Justify="Justify.Center">
+            </MudStack>
+        </MudItem>
+        <MudItem xs="12">
+            @if (!string.IsNullOrEmpty(Output.Value))
+            {
+                <MudPaper>
+                    <MudStack>
+                        <MudStack C Justify="Justify.FlexStart" Row="true">
+                            <MudIconButton Class="mt-1 ml-1" OnClick="SubmitAsync" Color="Color.Success" Icon="@Icons.Material.Rounded.Bolt"/>
+                        </MudStack>
+                        <MudContainer>
+                            @Output
+    
+                            <MudStack Justify="Justify.FlexEnd" Row="true">
+                                <MudIconButton Class="ma-1" Icon="@Icons.Material.Rounded.ContentCopy" aria-label="Copy"
+                                               OnClick="CopyCommitMessage"></MudIconButton>
+                            </MudStack>
+                        </MudContainer>
+                    </MudStack>
+                </MudPaper>
+            }
+        </MudItem>
+        
+        @* More things here *@
+    </MudGrid>
+</MudContainer>
 
 <AntDesign.Row>
     <AntDesign.Col Xxl="@ContentSpan" Xl="@ContentSpan" Lg="ContentSpan" Md="24" Sm="24" Xs="24">
-
-        <AntDesign.Title Level="1">
-            <div class="flex-between">
-                Ready, Set... ENGAGE!
-                <SelectTheme/>
-            </div>
-        </AntDesign.Title>
-
         <AntDesign.Row>
             <AntDesign.Col Span="22" Xl="22" Md="24" Sm="24">
                 <Select DataSource="@ProjectMetadatas"
@@ -153,19 +176,6 @@
                     </CollapsibleCard>
                 </AntDesign.Col>
             </AntDesign.Row>
-
-            <Divider/>
-
-            <CollapsibleCard Title="Output" DefaultVisible AnchorLink="output">
-                <div>
-                    @Output
-
-                    <div style="position:absolute; top: 70px; right: 10px;">
-                        <Button Style="border: none" OnClick="CopyCommitMessage" Icon="copy">Copy</Button>
-                        <Button Style="border: none" OnClick="SubmitAsync" Icon="sync">Refresh</Button>
-                    </div>
-                </div>
-            </CollapsibleCard>
         }
     </AntDesign.Col>
     <AntDesign.Col Xxl="@AnchorSpan" Xl="@AnchorSpan" Lg="AnchorSpan" Md="0" Sm="0" Xs="0">
