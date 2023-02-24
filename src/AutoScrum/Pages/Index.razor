@@ -18,7 +18,14 @@
             </MudStack>
         </MudItem>
         <MudItem xs="12">
-            @if (!string.IsNullOrEmpty(Output.Value))
+            @if (string.IsNullOrEmpty(Output.Value))
+            {
+                <MudStack Justify="Justify.FlexStart" Spacing="2" Row="true">
+                    <MudFab OnClick="SubmitAsync" Color="Color.Success" StartIcon="@Icons.Material.Rounded.Bolt"/>
+                    <MudText Class="d-flex align-center" Typo="Typo.h5">Generate!</MudText>
+                </MudStack>
+            }
+            else
             {
                 <MudPaper>
                     <MudStack>
@@ -27,7 +34,7 @@
                         </MudStack>
                         <MudContainer>
                             @Output
-    
+
                             <MudStack Justify="Justify.FlexEnd" Row="true">
                                 <MudIconButton Class="ma-1" Icon="@Icons.Material.Rounded.ContentCopy" aria-label="Copy"
                                                OnClick="CopyCommitMessage"></MudIconButton>
