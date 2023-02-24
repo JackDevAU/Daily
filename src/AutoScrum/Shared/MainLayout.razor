@@ -4,6 +4,19 @@
 <MudDialogProvider/>
 <MudSnackbarProvider/>
 
+
+<MudLayout>
+    <MudAppBar>
+        SSW.Daily
+    </MudAppBar>
+    <MudMainContent>
+         <MudContainer MaxWidth="MaxWidth.Medium">
+            @Body
+         </MudContainer>
+    </MudMainContent>
+</MudLayout>
+
+@*
 <Layout>
     <Header>
         <div style="display: flex; align-items: center">
@@ -16,5 +29,5 @@
     <Content Style="padding: 1rem 0 1rem 50px">
         @Body
         @*<BackTop />*@
-    </Content>
-</Layout>
+@*    </Content>
+</Layout>*@
