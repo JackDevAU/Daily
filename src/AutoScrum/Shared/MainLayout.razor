@@ -2,13 +2,12 @@
 @inject NavigationManager _nav
 
 <MudThemeProvider Theme="SSWMudTheme.Theme" />
-
 <MudDialogProvider/>
 <MudSnackbarProvider/>
 
 <MudLayout>
     <MudAppBar>
-        <MudText Typo="Typo.h3">SSW.Daily</MudText>
+        <MudText Typo="Typo.h3">AutoScrum</MudText>
         <MudSpacer/>
         <MudIconButton Icon="@Icons.Material.Rounded.Settings" OnClick="@(() => _nav.NavigateTo("/settings"))"/>
     </MudAppBar>
