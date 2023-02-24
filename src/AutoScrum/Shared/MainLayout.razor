@@ -7,7 +7,7 @@
 
 <MudLayout>
     <MudAppBar>
-        <MudLink Href="/" Style="@($"color:{SSWMudTheme.Theme.Palette.White}")" Typo="Typo.h3">AutoScrum</MudLink>
+        <MudLink Href="/"><MudText Style="@($"color:{SSWMudTheme.Theme.Palette.White}")" Typo="Typo.h3">AutoScrum</MudText></MudLink>
         <MudSpacer/>
         <MudIconButton Style="@($"color:{SSWMudTheme.Theme.Palette.White}")" Icon="@Icons.Material.Rounded.Settings" OnClick="@(() => _nav.NavigateTo("/settings"))" />
     </MudAppBar>
